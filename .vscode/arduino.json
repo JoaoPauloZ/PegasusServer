@@ -1,0 +1,6 @@
+{
+    "board": "realtek:ameba:ameba_rtl8195a",
+    "port": "/dev/cu.usbmodem14312",
+    "output": "../ArduinoOutput",
+    "sketch": "main.ino"
+}
