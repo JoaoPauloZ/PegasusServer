@@ -2,10 +2,10 @@
 #include <SPI.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
-
 #include "PegasusServer.h"
 
-// Internal use
+#include "PegasusProcessor.h"
+
 char ssid[] = "T.A.R.D.I.S.";
 char pass[] = "p47p51zero0";
 
@@ -13,6 +13,8 @@ int status = WL_IDLE_STATUS;
 WiFiUDP serverUDP;
 unsigned int localPort = 80;
 char packetBuffer[255];
+
+void printWifiStatus();
 
 void serverInit() {
 
@@ -48,7 +50,10 @@ void serverRead() {
     if (len > 0) {
       packetBuffer[len] = 0;
     }
-    printf("%s", packetBuffer);
+
+    processorProcess(packetBuffer);
+    //printf("%s", packetBuffer);
+    
   }
 }
 
