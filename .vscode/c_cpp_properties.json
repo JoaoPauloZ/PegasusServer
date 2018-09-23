@@ -5,7 +5,10 @@
             "includePath": [
                 "/Users/joao_paulosg/Library/Arduino15/packages/realtek/tools/**",
                 "/Users/joao_paulosg/Library/Arduino15/packages/realtek/hardware/ameba/2.0.5/**",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/Users/joao_paulosg/Library/Arduino15/packages/realtek/hardware/ameba/2.0.5/cores/arduino",
+                "/Users/joao_paulosg/Library/Arduino15/packages/realtek/hardware/ameba/2.0.5/libraries/WiFi/src",
+                "/Users/joao_paulosg/Library/Arduino15/packages/realtek/hardware/ameba/2.0.5/variants/rtl8195a"
             ],
             "defines": [],
             "macFrameworkPath": [
