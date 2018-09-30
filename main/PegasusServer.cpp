@@ -6,16 +6,20 @@ PegasusServer::PegasusServer() {
   	if (fv != "1.1.0") {
    		printf("Please upgrade the firmware\n");
   	}
+
+}
+
+void PegasusServer::init() {
 	// attempt to connect to Wifi network:
-  	while (status != WL_CONNECTED) {
-			printf("Attempting to connect to Network named: %s\n", "T.A.R.D.I.S.");
-			// Connect to WPA/WPA2 network.
-      char ssid[] = "T.A.R.D.I.S.";
-      char pass[] = "p47p51zero0";
-			status = WiFi.begin(ssid, pass);
-			// wait 10 seconds for connection:
-			delay(10000);
-		}
+	while (status != WL_CONNECTED) {
+		printf("Attempting to connect to Network named: %s\n", "T.A.R.D.I.S.");
+		// Connect to WPA/WPA2 network.
+		char ssid[] = "T.A.R.D.I.S.";
+		char pass[] = "p47p51zero0";
+		status = WiFi.begin("T.A.R.D.I.S.", "p47p51zero0");
+		// wait 10 seconds for connection:
+		delay(10000);
+	}
 
 	isConnected = true;
 	// connected, so print out the status

@@ -1,7 +1,7 @@
 #ifndef PEGASUS_SERVER_H
 #define PEGASUS_SERVER_H
 
-//#include <Arduino.h>
+#include <Arduino.h>
 #include <SPI.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
@@ -12,6 +12,7 @@ public:
    bool isConnected;
 
    PegasusServer();
+   void init();
    void listen();
 
 private:
