@@ -8,11 +8,22 @@ PegasusProcessor::PegasusProcessor() {
 //"\(command);\(throttle);\(pitch);\(roll);\(yaw);"
 void PegasusProcessor::process(String buffer) {
 
+   if (buffer.length() > 0) {
+      action = buffer[0];
+   }
+
+   if (action == 'C') {
+      fillCommands(buffer);
+   }
+
+}
+
+void PegasusProcessor::fillCommands(String buffer) {
    int count = 0;
    char c = ' ';
    String number_str = "";
 
-   for (int i = 0; i < buffer.length(); i++) {
+   for (int i = 1; i < buffer.length(); i++) {
       c = buffer.charAt(i);
       // if finished a number
       if (c == ';') {

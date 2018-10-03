@@ -9,12 +9,17 @@ public:
    float roll;
    float yaw;
 
+   // C —> Commands
+   // S —> Start/Stop
+   // T —> Take off
+   // L —> Landing
+   char action;
+
    PegasusProcessor();
    void process(String);
 
 private:
-   char packetBuffer[255];
-   void printWifiStatus();
+   void fillCommands(String buffer);
 };
 
 #endif
