@@ -13,12 +13,9 @@ public:
 
    PegasusServer();
    void init();
-   void listen();
+   String listen();
 
 private:
-//   char ssid[] = {'T','.','A','.','R','.','D','.','I','.','S','.'};
-//   char pass[] = {'p','4','7','p','5','1','z','e','r','o','0'};
-  
    WiFiUDP serverUDP;
    int status = WL_IDLE_STATUS;
    unsigned int localPort = 80;

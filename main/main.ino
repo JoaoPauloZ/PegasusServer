@@ -1,7 +1,9 @@
 #include "Arduino.h"
 #include "PegasusServer.h"
 
+//https://www.arduinoecia.com.br/2015/07/como-ligar-motor-brushless-arduino.html
 PegasusServer server;
+String buffer = "";
 
 void setup() {
   Serial.begin(9600);
@@ -13,5 +15,5 @@ void setup() {
 }
 
 void loop() {
-	server.listen();
+   buffer = server.listen();
 }
