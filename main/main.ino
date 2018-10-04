@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "PegasusServer.h"
 #include "PegasusProcessor.h"
-#include "FlightController.h"
+#include "PegasusFlightController.h"
 
 //https://www.arduinoecia.com.br/2015/07/como-ligar-motor-brushless-arduino.html
 PegasusServer server;
@@ -25,19 +25,17 @@ void setup() {
 }
 
 void loop() {
-   
+
    buffer = server.listen();
-   
+
    processor.process(buffer);
 
-   // chamar a função especifica do FC para cada action
-   if (processor.action == 'S') {
-      // verificar se está ligado ou desligado
-   } else if (processor.action == 'T') {
-      flightController.takeOff();
-   } else if (processor.action == 'L') {
-      flightController.landing();
-   }
+   flightController.throttle = processor.throttle;
+   flightController.pitch = processor.pitch;
+   flightController.roll = processor.roll;
+   flightController.yaw = processor.yaw;
+   flightController.action = processor.action;
 
+   flightController.update();
 
 }

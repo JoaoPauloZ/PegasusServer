@@ -4,10 +4,10 @@
 class PegasusProcessor {
 
 public:
-   float throttle;
-   float pitch;
-   float roll;
-   float yaw;
+   int throttle;
+   int pitch;
+   int roll;
+   int yaw;
 
    // C —> Commands
    // S —> Start/Stop
