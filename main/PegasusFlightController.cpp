@@ -2,7 +2,7 @@
 #include "PegasusFlightController.h"
 
 PegasusFlightController::PegasusFlightController() {
-   motor0 = PegasusMotor(5);
+   motor0 = PegasusMotor(11);
 }
 
 void PegasusFlightController::update() {

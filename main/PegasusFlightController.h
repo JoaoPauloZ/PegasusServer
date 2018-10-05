@@ -5,10 +5,10 @@
 class PegasusFlightController {
 
 public:
-   int throttle = 0.0;
-   int pitch = 0.0;
-   int roll = 0.0;
-   int yaw = 0.0;
+   int throttle = 0;
+   int pitch = 0;
+   int roll = 0;
+   int yaw = 0;
    char action = '0';
 
    PegasusFlightController();

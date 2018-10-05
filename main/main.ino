@@ -13,10 +13,10 @@ String buffer = "";
 void setup() {
    Serial.begin(9600);
    Serial.println("Sistema iniciado");
-   
+ 
    server = PegasusServer();
    server.init();
-   
+ 
    // while server is not conected wait
    while (!server.isConnected) {}
 
@@ -27,7 +27,6 @@ void setup() {
 void loop() {
 
    buffer = server.listen();
-
    processor.process(buffer);
 
    flightController.throttle = processor.throttle;
@@ -35,6 +34,9 @@ void loop() {
    flightController.roll = processor.roll;
    flightController.yaw = processor.yaw;
    flightController.action = processor.action;
+
+   Serial.print("throttle: ");
+   Serial.println(flightController.throttle);
 
    flightController.update();
 

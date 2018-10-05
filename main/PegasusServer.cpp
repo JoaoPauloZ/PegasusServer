@@ -36,7 +36,7 @@ String PegasusServer::listen() {
       if (len > 0) {
       packetBuffer[len] = 0;
    }
-      //printf("%s", packetBuffer);
+      //printf("%s\n", packetBuffer);
       String buffer_str(packetBuffer);
       return buffer_str;
    }
