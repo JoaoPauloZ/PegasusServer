@@ -7,16 +7,16 @@ PegasusFlightController::PegasusFlightController() {
 
 void PegasusFlightController::update(int throttle, int pitch, int roll, int yaw) {
 
-   Serial.print("T: ");
-   Serial.print(throttle);
-   Serial.print(" P: ");
-   Serial.print(pitch);
-   Serial.print(" R: ");
-   Serial.print(roll);
-   Serial.print(" Y: ");
-   Serial.println(yaw);
+//   Serial.print("T: ");
+//   Serial.print(throttle);
+//   Serial.print(" P: ");
+//   Serial.print(pitch);
+//   Serial.print(" R: ");
+//   Serial.print(roll);
+//   Serial.print(" Y: ");
+//   Serial.println(yaw);
 
-   //motor0.setSpeed(throttle);
+   motor0.setSpeed(throttle);
 
 }
 
