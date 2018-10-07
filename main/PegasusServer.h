@@ -5,6 +5,7 @@
 #include <SPI.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
+#include "PegasusProcessor.h"
 
 class PegasusServer {
 
@@ -13,10 +14,12 @@ public:
 
    PegasusServer();
    void init();
-   String listen();
+   void listen();
 
 private:
    WiFiUDP serverUDP;
+   PegasusProcessor processor;
+
    int status = WL_IDLE_STATUS;
    unsigned int localPort = 80;
    char packetBuffer[255];

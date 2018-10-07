@@ -2,7 +2,6 @@
 #include "PegasusProcessor.h"
 
 PegasusProcessor::PegasusProcessor() {
-
 }
 
 //"\(command);\(throttle);\(pitch);\(roll);\(yaw);"
@@ -22,6 +21,8 @@ void PegasusProcessor::fillCommands(String buffer) {
    int count = 0;
    char c = ' ';
    String number_str = "";
+
+   Serial.println(buffer);
 
    for (int i = 1; i < buffer.length(); i++) {
       c = buffer.charAt(i);

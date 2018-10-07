@@ -27,9 +27,11 @@ void PegasusServer::init() {
    printWifiStatus();
    // if you get a connection, report back via serial:
    serverUDP.begin(localPort);
+
+   processor = PegasusProcessor();
 }
 
-String PegasusServer::listen() {
+void PegasusServer::listen() {
    // if there's data available, read a packet
    int packetSize = serverUDP.parsePacket();
    if (packetSize) {
@@ -38,9 +40,9 @@ String PegasusServer::listen() {
       if (len > 0) {
          packetBuffer[len] = 0;
       }
-      Serial.println(packetBuffer);
-      //String buffer_str(packetBuffer);
-      return "buffer_str";
+      //Serial.println(packetBuffer);
+      String buffer_str(packetBuffer);
+      processor.process(buffer_str);
    }
 }
 
