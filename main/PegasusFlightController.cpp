@@ -5,15 +5,16 @@ PegasusFlightController::PegasusFlightController() {
    motor0 = PegasusMotor(11);
 }
 
-void PegasusFlightController::update() {
+void PegasusFlightController::update(int throttle, int pitch, int roll, int yaw) {
 
-   if (action == 'S') {
-      toggleEngines();
-   } else if (action == 'T') {
-      takeOff();
-   } else if (action == 'L') {
-      landing();
-   }
+   Serial.print("T: ");
+   Serial.print(throttle);
+   Serial.print(" P: ");
+   Serial.print(pitch);
+   Serial.print(" R: ");
+   Serial.print(roll);
+   Serial.print(" Y: ");
+   Serial.println(yaw);
 
    //motor0.setSpeed(throttle);
 
@@ -25,7 +26,6 @@ void PegasusFlightController::toggleEngines() {
    } else {
       startEngines();
    }
-
 }
 
 void PegasusFlightController::startEngines() {

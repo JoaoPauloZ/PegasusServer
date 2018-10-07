@@ -2,6 +2,7 @@
 #include "PegasusProcessor.h"
 
 PegasusProcessor::PegasusProcessor() {
+   flightController = PegasusFlightController();
 }
 
 //"\(command);\(throttle);\(pitch);\(roll);\(yaw);"
@@ -22,7 +23,7 @@ void PegasusProcessor::fillCommands(String buffer) {
    char c = ' ';
    String number_str = "";
 
-   Serial.println(buffer);
+   //Serial.println(buffer);
 
    for (int i = 1; i < buffer.length(); i++) {
       c = buffer.charAt(i);
@@ -50,5 +51,6 @@ void PegasusProcessor::fillCommands(String buffer) {
          number_str += c;
       }
    }
+   flightController.update(throttle, pitch, roll, yaw);
    //printf("T=%d P=%d R=%d Y=%d\n", throttle, pitch, roll, yaw);
 }

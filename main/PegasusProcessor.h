@@ -1,6 +1,8 @@
 #ifndef PEGASUS_PROCESSOR_H
 #define PEGASUS_PROCESSOR_H
 
+#include "PegasusFlightController.h"
+
 class PegasusProcessor {
 
 public:
@@ -16,9 +18,10 @@ public:
    char action;
 
    PegasusProcessor();
-   void process(String);
+   void process(String buffer);
 
 private:
+   PegasusFlightController flightController; 
    void fillCommands(String buffer);
 };
 

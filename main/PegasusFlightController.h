@@ -13,7 +13,7 @@ public:
 
    PegasusFlightController();
 
-   void update();
+   void update(int throttle, int pitch, int roll, int yaw);
    void toggleEngines();
    void takeOff();
    void landing();
