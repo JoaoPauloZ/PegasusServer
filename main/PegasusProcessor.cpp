@@ -49,5 +49,5 @@ void PegasusProcessor::fillCommands(String buffer) {
          number_str += c;
       }
    }
-   //printf("T=%f P=%f R=%f Y=%f\n", throttle, pitch, roll, yaw);
+   //printf("T=%d P=%d R=%d Y=%d\n", throttle, pitch, roll, yaw);
 }

@@ -15,7 +15,7 @@ void PegasusFlightController::update() {
       landing();
    }
 
-   motor0.setSpeed(throttle);
+   //motor0.setSpeed(throttle);
 
 }
 

@@ -21,15 +21,13 @@ public:
 private:
    bool enginesOn = false;
 
-   PegasusMotor motor0; // Font left
+   PegasusMotor motor0; // Front left
    PegasusMotor motor1; // Front right
    PegasusMotor motor2; // Back right
    PegasusMotor motor3; // Back left
 
    void startEngines();
    void stopEngines();
-
-   // função para normalizar o valor do throttle percent to absolute
 
 };
 

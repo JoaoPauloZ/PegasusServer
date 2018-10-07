@@ -20,24 +20,10 @@ void setup() {
    // while server is not conected wait
    while (!server.isConnected) {}
 
-   processor = PegasusProcessor();
-   flightController = PegasusFlightController();
 }
 
 void loop() {
 
-   buffer = server.listen();
-   processor.process(buffer);
-
-   flightController.throttle = processor.throttle;
-   flightController.pitch = processor.pitch;
-   flightController.roll = processor.roll;
-   flightController.yaw = processor.yaw;
-   flightController.action = processor.action;
-
-   Serial.print("throttle: ");
-   Serial.println(flightController.throttle);
-
-   flightController.update();
+   server.listen();
 
 }
