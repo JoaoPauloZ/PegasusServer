@@ -1,6 +1,7 @@
 #ifndef PEGASUS_PROCESSOR_H
 #define PEGASUS_PROCESSOR_H
 
+#include "PegasusMotorPreferences.h"
 #include "PegasusFlightController.h"
 
 class PegasusProcessor {
@@ -23,6 +24,8 @@ public:
 private:
    PegasusFlightController flightController; 
    void fillCommands(String buffer);
+   void fillMotorPreferences(String buffer);
+   PegasusMotorPreferences strToPref(String buffer);
 };
 
 #endif

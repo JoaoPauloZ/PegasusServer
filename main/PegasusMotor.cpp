@@ -9,10 +9,6 @@ PegasusMotor::PegasusMotor(int pin) {
 }
 
 void PegasusMotor::setSpeed(int speed) {
-   int value = map(speed, 0, 100, 65, 179);
+   int value = map(speed + preference.increaseValue, 0, 100, preference.minAngleESC, preference.maxAngleESC);
    esc.write(value);
-   //Serial.print("Speed: ");
-   //Serial.println(speed);
-   //Serial.print("Motor speed: ");
-   //Serial.println(value);
 }

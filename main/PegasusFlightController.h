@@ -1,6 +1,7 @@
 #ifndef PEGASUS_FLIGHT_CONTROLLER_H
 #define PEGASUS_FLIGHT_CONTROLLER_H
 #include "PegasusMotor.h"
+#include "PegasusMotorPreferences.h"
 
 class PegasusFlightController {
 
@@ -14,6 +15,7 @@ public:
    PegasusFlightController();
 
    void update(int throttle, int pitch, int roll, int yaw);
+   void setPreferencesForMotor(int motor, PegasusMotorPreferences preference);
    void toggleEngines();
    void takeOff();
    void landing();
@@ -28,6 +30,7 @@ private:
 
    void startEngines();
    void stopEngines();
+   void printValues();
 
 };
 

@@ -2,10 +2,14 @@
 #define PEGASUS_MOTOR_H
 #include <Arduino.h>
 #include <AmebaServo.h>
+#include "PegasusMotorPreferences.h"
 
 class PegasusMotor {
 
 public:
+
+   PegasusMotorPreferences preference;
+
    PegasusMotor();
    PegasusMotor(int pin);
    void setSpeed(int speed);
