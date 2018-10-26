@@ -4,9 +4,9 @@
 class Buzzer {
 
 public:
-   static const int pin = 8;
+   static const int pin = 12;
 
-   static void buzz(int numberOfTimes, int timer);
+   static void beep(int numberOfTimes, int delayms);
 };
 
 #endif

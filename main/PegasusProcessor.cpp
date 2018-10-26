@@ -1,15 +1,21 @@
 #include <Arduino.h>
 #include "PegasusProcessor.h"
+#include "Buzzer.h"
 
 PegasusProcessor::PegasusProcessor() {
    flightController = PegasusFlightController();
 }
 
-//"\(command);\(throttle);\(pitch);\(roll);\(yaw);"
+//"\(action);\(throttle);\(pitch);\(roll);\(yaw);"
 void PegasusProcessor::process(String buffer) {
 
    if (buffer.length() > 0) {
       action = buffer[0];
+   }
+
+   if (action == 'S') {
+      Buzzer::beep(5, 200);
+      fillCommands("C1;1;1;1;");
    }
 
    // Update preferences
@@ -77,27 +83,32 @@ void PegasusProcessor::fillMotorPreferences(String buffer) {
       if (c == '&') {
          Serial.println(buffer_temp);
          if (count == 0) {
-             pref_0 = strToPref(buffer_temp);
-             buffer_temp = "";
-             count++;
-          } else if (count == 1) {
-             pref_1 = strToPref(buffer_temp);
-             buffer_temp = "";
-             count++;
-          } else if (count == 2) {
-             pref_2 = strToPref(buffer_temp);
-             buffer_temp = "";
-             count++;
-          } else if (count == 3) {
-             pref_3 = strToPref(buffer_temp);
-             buffer_temp = "";
-             count = 0;
-          }
+            pref_0 = strToPref(buffer_temp);
+            buffer_temp = "";
+            count++;
+         } else if (count == 1) {
+            pref_1 = strToPref(buffer_temp);
+            buffer_temp = "";
+            count++;
+         } else if (count == 2) {
+            pref_2 = strToPref(buffer_temp);
+            buffer_temp = "";
+            count++;
+         } else if (count == 3) {
+            pref_3 = strToPref(buffer_temp);
+            buffer_temp = "";
+            count = 0;
+         }
       // add str to buffer_temp
       } else {
          buffer_temp += c;
       }
    }
+
+   flightController.setPreferencesForMotor(0, pref_0);
+   flightController.setPreferencesForMotor(1, pref_1);
+   flightController.setPreferencesForMotor(2, pref_2);
+   flightController.setPreferencesForMotor(3, pref_3);
 
    Serial.print("pref_0 - Increase:");
    Serial.print(pref_0.increaseValue);

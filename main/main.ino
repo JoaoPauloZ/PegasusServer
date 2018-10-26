@@ -9,15 +9,12 @@ void setup() {
    Serial.begin(9600);
    Serial.println("Sistema iniciado");
 
-   Buzzer::buzz(2, 50);
-
    server = PegasusServer();
    server.init();
  
    // while server is not conected wait
    while (!server.isConnected) {}
-   
-   Buzzer::buzz(3, 50);
+
 }
 
 void loop() {

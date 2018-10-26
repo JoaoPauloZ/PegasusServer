@@ -1,14 +1,14 @@
 #include <Arduino.h>
 #include "Buzzer.h"
 
-void Buzzer::buzz(int numberOfTimes, int timer) {
-   int frequence = 2500;
+void Buzzer::beep(int numberOfTimes, int delayms) {
+
+  pinMode(pin, OUTPUT);
 
    for (int i = 0; i <= numberOfTimes; i++) {
-      tone(pin,frequence);   
-      delay(timer);
-
-      noTone(pin);
-      delay(timer);  
+      digitalWrite(pin, HIGH);
+      delay(delayms);
+      digitalWrite(pin, LOW);
+      delay(delayms); 
    }
 }

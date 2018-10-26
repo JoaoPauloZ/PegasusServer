@@ -9,6 +9,12 @@ PegasusMotor::PegasusMotor(int pin) {
 }
 
 void PegasusMotor::setSpeed(int speed) {
-   int value = map(speed + preference.increaseValue, 0, 100, preference.minAngleESC, preference.maxAngleESC);
-   esc.write(value);
+   if (speed >= 0) {
+      int value = map(speed + preference.increaseValue, 0, 100, preference.minAngleESC, preference.maxAngleESC);
+      if (value >= preference.increaseValue + 5) {
+         esc.write(value);
+      } else {
+         esc.write(preference.increaseValue + 5);
+      }
+   }
 }
