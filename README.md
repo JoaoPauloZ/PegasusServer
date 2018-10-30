@@ -1,32 +1,21 @@
 # PegasusServer
 
-## Introduction
-PegasusServer is a project that uses sockets with an arduino based board to receive commands from a client on a local network and controls the drone.
+## Introdução
 
-## Requirements
+PegasusServer é um projeto desenvolvido sobre a plataforma [Arduino](https://www.arduino.cc), mais especificamente para a placa [Ameba RTL8195](https://www.amebaiot.com/en/boards/). Possui como interface de comunicação com o usuário o aplicativo [PegasusApp](https://github.com/JoaoPauloZ/PegasusApp). A comunicação entre os dois dispositivos se dá através da __*especificação de comunicação*__, sendo esta implementada sobre protocolo de rede [UDP](https://pt.wikipedia.org/wiki/User_Datagram_Protocol). 
 
-## Using
+## Dependências
 
-- ### Moving the drone:
-  #### 1. Definitios:
-  The directions are named according to the compass. Looking from behind (like the pilot).
+### Obrigatórias:
+* [Arduino IDE](https://www.arduino.cc/en/Main/Software);
+* [Ameba RTL8195](https://www.amebaiot.com/en/boards/);
+* [PegasusApp](https://github.com/JoaoPauloZ/PegasusApp).
 
-  Where:
-   - N -> Front
-   - S -> Back
-   - E -> Left
-   - W -> Right
+### Recomendas:
+* [VSCode](https://code.visualstudio.com);
+* [Visual Studio Code extension for Arduino](https://github.com/Microsoft/vscode-arduino);
+* [Microsoft C/C++ extension for VS Code.](https://github.com/Microsoft/vscode-cpptools);
 
-  The amount of variation in a direction is a float number with a range from 0.0 to 100.0. 
-  
-  Where: "0.0" indicates that the drone should not move to the specific direction and "100.0" indicates that it should move with full power.
+## Configuração
 
-  #### 2. Using:
-```json
-{
-  "N" : 100.0,
-  "S" : 0.0,
-  "E" : 50.0,
-  "W" : 0.0
-}
-```
+1. Arduino IDE: A [Ameba RTL8195](https://www.amebaiot.com/en/boards/) necessita de configurações apropriadas para funcionar com a Arduino IDE. Estas configurações podem ser feitas seguindo os passos desse [tutorial](https://www.amebaiot.com/en/ameba-arduino-getting-started/);
