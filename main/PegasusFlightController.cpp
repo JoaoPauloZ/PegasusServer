@@ -2,9 +2,9 @@
 #include "PegasusFlightController.h"
 
 PegasusFlightController::PegasusFlightController() {
-   motor0 = PegasusMotor(11);
+   motor0 = PegasusMotor(9);
    motor1 = PegasusMotor(10);
-   motor2 = PegasusMotor(9);
+   motor2 = PegasusMotor(11);
    motor3 = PegasusMotor(12);
 }
 
