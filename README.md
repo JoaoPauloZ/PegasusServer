@@ -25,6 +25,14 @@ PegasusServer é um projeto desenvolvido sobre a plataforma [Arduino](https://ww
 
 ## Hardware
 
+### Componentes:
+
+* 4 motores; 
+* 4 ESCs;
+* 4 hélices;
+* Frame;
+* Bateria
+
 ### Disposição dos motores:
 Para o funcionamento do drone os motores devem respeitar a disposição da imagem abaixo, isso porque as manobras de __*pitch, yaw*__ e __*row*__ são comandadas alterando a velocidade de giro de determinados motores. Também deve-se respeitar o sentido de giro descrito, isso porque os motores tem que *se anularem*.
 
