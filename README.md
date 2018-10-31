@@ -30,3 +30,5 @@ Para o funcionamento do drone os motores devem respeitar a disposição da image
 
 <img src="/Images/motors-layout.png" alt="Layout dos motores" width="500">
 Fonte: xxxx
+
+Para alterar os pinos de comando dos motores no arquivo ```PegasusFlightController.cpp``` na função ```PegasusFlightController::PegasusFlightController()``` altere os valores passados para a inicialização dos motores desejados.
