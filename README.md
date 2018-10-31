@@ -21,3 +21,12 @@ PegasusServer é um projeto desenvolvido sobre a plataforma [Arduino](https://ww
 1. __Arduino IDE:__ A [Ameba RTL8195](https://www.amebaiot.com/en/boards/) necessita de configurações apropriadas para funcionar com a Arduino IDE. Estas configurações podem ser feitas seguindo os passos desse [tutorial](https://www.amebaiot.com/en/ameba-arduino-getting-started/);
 
 2. __Rede Wi-Fi:__ No arquivo ```PegasusServer.cpp``` na função ```void PegasusServer::init()``` alterar os valores das váriaveis ```char ssid[]``` e ```char pass[]``` para os valores da sua rede Wi-Fi. É importatne salientar que o __PegasusServer__ não cria um *Access Point* próprio, sendo portanto necessário uma rede Wi-Fi já configurada para que o mesmo possa conectar-se;
+
+
+## Hardware
+
+### Disposição dos motores:
+Para o funcionamento do drone os motores devem respeitar a disposição da imagem abaixo, isso porque as manobras de __*pitch, yaw*__ e __*row*__ são comandadas alterando a velocidade de giro de determinados motores. Também deve-se respeitar o sentido de giro descrito, isso porque os motores tem que *se anularem*.
+
+<img src="/Images/motors-layout.png" alt="Layout dos motores" width="500">
+Fonte: xxxx
