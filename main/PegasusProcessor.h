@@ -16,6 +16,7 @@ public:
    // S —> Start/Stop
    // T —> Take off
    // L —> Landing
+   // U -> Update preferences
    char action;
 
    PegasusProcessor();

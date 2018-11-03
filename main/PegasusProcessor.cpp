@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include "PegasusProcessor.h"
-#include "Buzzer.h"
 
 PegasusProcessor::PegasusProcessor() {
    flightController = PegasusFlightController();
@@ -11,11 +10,6 @@ void PegasusProcessor::process(String buffer) {
 
    if (buffer.length() > 0) {
       action = buffer[0];
-   }
-
-   if (action == 'S') {
-      Buzzer::beep(5, 200);
-      fillCommands("C1;1;1;1;");
    }
 
    // Update preferences
@@ -77,7 +71,7 @@ void PegasusProcessor::fillMotorPreferences(String buffer) {
 
    Serial.println(buffer);
 
-   for (int i = 1; i < buffer.length(); i++) {      
+   for (int i = 1; i < buffer.length(); i++) {
       c = buffer.charAt(i);
       // if finished a number
       if (c == '&') {
@@ -110,15 +104,9 @@ void PegasusProcessor::fillMotorPreferences(String buffer) {
    flightController.setPreferencesForMotor(2, pref_2);
    flightController.setPreferencesForMotor(3, pref_3);
 
-   Serial.print("pref_0 - Increase:");
-   Serial.print(pref_0.increaseValue);
-   Serial.print(" Min: ");
-   Serial.print(pref_0.minAngleESC);
-   Serial.print(" Max: ");
-   Serial.println(pref_0.maxAngleESC);
 }
 
-PegasusMotorPreferences PegasusProcessor:: strToPref(String buffer) {
+PegasusMotorPreferences PegasusProcessor::strToPref(String buffer) {
    int count = 0;
    char c = ' ';
 

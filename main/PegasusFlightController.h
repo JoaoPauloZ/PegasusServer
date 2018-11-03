@@ -17,8 +17,6 @@ public:
    void update(int throttle, int pitch, int roll, int yaw);
    void setPreferencesForMotor(int motor, PegasusMotorPreferences preference);
    void toggleEngines();
-   void takeOff();
-   void landing();
 
 private:
    bool enginesOn = false;

@@ -122,14 +122,6 @@ void PegasusFlightController::stopEngines() {
    motor3.setSpeed(0);
 }
 
-void PegasusFlightController::takeOff() {
-
-}
-
-void PegasusFlightController::landing() {
-
-}
-
 void PegasusFlightController::printValues() {
    Serial.print("T: ");
    Serial.println(throttle);
