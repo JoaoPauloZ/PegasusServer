@@ -12,8 +12,8 @@ PegasusServer::PegasusServer() {
 void PegasusServer::init() {
    // attempt to connect to Wifi network:
    while (status != WL_CONNECTED) {
-      char ssid[] = "T.A.R.D.I.S.";
-      char pass[] = "p47p51zero0";
+      char ssid[] = "";
+      char pass[] = "";
       Serial.print("Attempting to connect to Network named: ");
       Serial.println(ssid);
       // Connect to WPA/WPA2 network.
@@ -40,8 +40,9 @@ void PegasusServer::listen() {
       if (len > 0) {
          packetBuffer[len] = 0;
       }
-      //Serial.println(packetBuffer);
+      // convert from char array to String
       String buffer_str(packetBuffer);
+      // call func PegasusProcessor::process
       processor.process(buffer_str);
    }
 }
